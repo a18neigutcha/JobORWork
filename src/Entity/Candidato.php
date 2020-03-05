@@ -31,6 +31,11 @@ class Candidato
      */
     private $telefono;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Oferta", inversedBy="candidatos")
+     */
+    private $oferta;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +73,18 @@ class Candidato
     public function setTelefono(string $telefono): self
     {
         $this->telefono = $telefono;
+
+        return $this;
+    }
+
+    public function getOferta(): ?Oferta
+    {
+        return $this->oferta;
+    }
+
+    public function setOferta(?Oferta $oferta): self
+    {
+        $this->oferta = $oferta;
 
         return $this;
     }
