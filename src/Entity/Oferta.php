@@ -39,6 +39,11 @@ class Oferta
      */
     private $candidatos;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $titulo;
+
     public function __construct()
     {
         $this->candidatos = new ArrayCollection();
@@ -112,6 +117,18 @@ class Oferta
                 $candidato->setOferta(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getTitulo(): ?string
+    {
+        return $this->titulo;
+    }
+
+    public function setTitulo(string $titulo): self
+    {
+        $this->titulo = $titulo;
 
         return $this;
     }

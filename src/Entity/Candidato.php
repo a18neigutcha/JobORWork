@@ -36,6 +36,11 @@ class Candidato
      */
     private $oferta;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $estudios;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +90,18 @@ class Candidato
     public function setOferta(?Oferta $oferta): self
     {
         $this->oferta = $oferta;
+
+        return $this;
+    }
+
+    public function getEstudios(): ?string
+    {
+        return $this->estudios;
+    }
+
+    public function setEstudios(string $estudios): self
+    {
+        $this->estudios = $estudios;
 
         return $this;
     }
