@@ -1,0 +1,31 @@
+{% extends 'barraMenu.html.twig' %}
+
+{% block title %}JobOrWork{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-3">
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        {{oferta.id}}.- {{oferta.titulo}}
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                        <p>{{oferta.descripcion}}</p>
+                        <footer class="blockquote-footer">{{fecha}} <a href="/empresas/{{empresa.id}}">{{empresa.nombre}}</a></footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+            </div>
+        </div>
+    </div>
+    
+
+{% endblock %}

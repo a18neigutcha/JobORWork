@@ -22,19 +22,19 @@ class OfertaRepository extends ServiceEntityRepository
     // /**
     //  * @return Oferta[] Returns an array of Oferta objects
     //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('o')
-            ->andWhere('o.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('o.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+    
+    // public function findByExampleField($value)
+    // {
+    //     return $this->createQueryBuilder('o')
+    //         ->andWhere('o.exampleField = :val')
+    //         ->setParameter('val', $value)
+    //         ->orderBy('o.id', 'ASC')
+    //         ->setMaxResults(10)
+    //         ->getQuery()
+    //         ->getResult()
+    //     ;
+    // }
+   
 
     /*
     public function findOneBySomeField($value): ?Oferta
@@ -47,4 +47,20 @@ class OfertaRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    /**
+     * @return Oferta[] Returns an array of Oferta objects
+     */
+    
+    public function findByEmpresa($value)
+    {
+        return $this->createQueryBuilder('o')
+            ->andWhere('o.empresa = :val')
+            ->setParameter('val', $value)
+            ->orderBy('o.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
 }

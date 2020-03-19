@@ -1,0 +1,51 @@
+{% extends 'barraMenu.html.twig' %}
+
+{% block title %}JobOrWork{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-3">
+            </div>
+            <div class="col-6">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                        <img src="{{asset('img/test.svg')}}" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{empresa.nombre}}</h5>
+                            <p class="card-text">Correo: {{empresa.correo}}</p>
+                            <p class="card-text"><small class="text-muted">Tipo: {{empresa.tipo}}</small></p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-3">
+            </div>
+            <div class="list-group col-6">
+            
+                {% for oferta in ofertas %}
+                    <a href="/{{oferta.id}}" class="list-group-item list-group-item-action">
+                        {{ oferta.titulo }}
+                    </a>
+                {% endfor %}
+                
+            </div>
+
+            <div class="col-3">
+            </div>
+        </div>
+    </div>
+    
+
+{% endblock %}

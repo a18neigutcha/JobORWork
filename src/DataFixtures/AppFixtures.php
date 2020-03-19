@@ -14,7 +14,7 @@ class AppFixtures extends Fixture
     {
 
 
-        for($i=0;$i<20;$i++){
+        for($i=0;$i<5;$i++){
 
             $empresa=new Empresa();
             $empresa->setLogo("./url_de_test/test.svg");

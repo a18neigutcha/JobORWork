@@ -1,18 +1,18 @@
 {% extends 'barraMenu.html.twig' %}
 
+
 {% block title %}JobOrWork{% endblock %}
 
 {% block body %}
-
     <div class="container">
         <br>
         <div class="row">
             <div class="col-3">
             </div>
             <div class="list-group col-6">
-                {% for oferta in ofertas %}
-                    <a href="/{{oferta.id}}" class="list-group-item list-group-item-action">
-                        {{ oferta.titulo }}
+                {% for empresa in empresas %}
+                    <a href="/empresas/{{empresa.id}}" class="list-group-item list-group-item-action">
+                        {{ empresa.nombre }}
                     </a>
                 {% endfor %}
                 
@@ -21,6 +21,4 @@
             </div>
         </div>
     </div>
-    
-
 {% endblock %}
