@@ -21,11 +21,21 @@
                 <th scope="row">{{oferta.id}}</th>
                 <td>{{oferta.titulo}}</td>
                 <td>{{oferta.descripcion}}</td>
-                <td>Fecha Pendiente</td>
-                <td>Empresa Pendiente</td>
+                <td>{{oferta.data_pub|date("Y/m/d")}}</td>
+                <td>{{oferta.empresaNombre}}</td>
                 <th scope="col">
-                    <button type="button" class="btn btn-primary">Modificar</button>
-                    <button type="button" class="btn btn-primary">Eliminar</button>
+                    <a class="btn btn-primary"
+                        href="{{path("admin_oferta_modif",
+                            {'id': oferta.id}
+                        )}}">
+                        Modificar
+                    </a>
+                    <a class="btn btn-primary"
+                        href="{{path("admin_oferta_elim",
+                            {'id': oferta.id}
+                        )}}">
+                        Eliminar
+                    </a>
                 </th>
                 </tr>
             {% endfor %}

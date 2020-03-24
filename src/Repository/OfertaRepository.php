@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Oferta;
+use App\Entity\Empresa;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
@@ -61,6 +62,20 @@ class OfertaRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult()
         ;
+    }
+    /**
+     * @return Oferta[]
+     */
+    public function findAllWithEmpresa(): array
+    {
+        $entityManager = $this->getEntityManager();
+        $query = $entityManager->createQuery(
+            'SELECT o.id, o.titulo, o.descripcion, o.data_pub, e.nombre AS empresaNombre 
+            FROM App\Entity\Oferta o LEFT JOIN App\Entity\Empresa e WITH o.empresa = e.id
+            '
+        );
+
+        return $query->getResult();
     }
 
 }

@@ -1,0 +1,24 @@
+{% extends 'barraMenu.html.twig' %}
+
+{% block title %}Modifar{% endblock %}
+
+{% block body %}
+    <br>
+
+    <div class="container">
+        {{ form_start(form) }}
+
+            {{ form_row(form.titulo) }}
+            {{ form_row(form.data_pub) }}
+            {{ form_row(form.descripcion) }}
+            
+            <input type="submit" class = "btn btn-primary" value="Guardar">
+        {{ form_end(form) }}
+    </div> 
+
+    
+
+    
+    
+    
+{% endblock %}
