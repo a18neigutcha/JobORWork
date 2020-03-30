@@ -1,0 +1,32 @@
+{% extends 'barraMenu.html.twig' %}
+
+{% block title %}Modifar{% endblock %}
+
+{% block body %}
+    <br>
+
+    <div class="container">
+        {{ form_start(form) }}
+
+            <h3>Datos oferta: </h3>
+            {{ form_row(form.titulo) }}
+            {{ form_row(form.data_pub) }}
+            {{ form_row(form.descripcion) }}
+
+            <h3>Datos empresa: </h3>
+
+            {{ form_row(form.empresa.nombre) }}
+            {{ form_row(form.empresa.logo) }}
+            {{ form_row(form.empresa.tipo) }}
+            {{ form_row(form.empresa.correo) }}
+            
+            <input type="submit" class = "btn btn-primary" value="Guardar">
+        {{ form_end(form) }}
+    </div> 
+
+    
+
+    
+    
+    
+{% endblock %}

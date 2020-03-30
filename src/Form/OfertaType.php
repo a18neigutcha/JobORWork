@@ -15,6 +15,7 @@ class OfertaType extends AbstractType
             ->add('descripcion')
             ->add('data_pub')
             ->add('titulo')
+            ->add('empresa',EmpresaType::class)
         ;
         
     }

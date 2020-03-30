@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManager;
 use App\Entity\Oferta;
+use App\Entity\Empresa;
 use App\Form\OfertaType;
 
 class AdminOfertaController extends AbstractController
@@ -62,6 +63,38 @@ class AdminOfertaController extends AbstractController
 
 
         return $this->redirectToRoute("admin");
+
+    }
+
+    /**
+     * @Route("/admin/aniadirOferta", name="admin_oferta_add")
+     */
+
+    public function addOferta(Request $request){
+
+        $manager = $this->getDoctrine()->getManager();
+
+        $oferta=new Oferta();
+
+        $form=$this->createForm(OfertaType::class, $oferta);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+
+            $manager->persist($oferta->getEmpresa());
+            $manager->flush();
+            
+            $manager->persist($oferta);
+            $manager->flush();
+
+            
+
+            return $this->redirectToRoute("admin");
+        }
+
+
+        return $this->render('admin/aniadirOferta.html.twig',
+        ["oferta" => $oferta, "form" => $form-> createView()]);
 
     }
 

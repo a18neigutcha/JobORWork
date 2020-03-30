@@ -23,7 +23,7 @@ final class Version20200305075200 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('ALTER TABLE candidato ADD oferta_id INT DEFAULT NULL');
-        $this->addSql('ALTER TABLE candidato ADD CONSTRAINT FK_2867675AFAFBF624 FOREIGN KEY (oferta_id) REFERENCES oferta (id)');
+        $this->addSql('ALTER TABLE candidato ADD CONSTRAINT FK_2867675AFAFBF624 FOREIGN KEY (oferta_id) REFERENCES oferta (id) ON DELETE SET NULL');
         $this->addSql('CREATE INDEX IDX_2867675AFAFBF624 ON candidato (oferta_id)');
     }
 
