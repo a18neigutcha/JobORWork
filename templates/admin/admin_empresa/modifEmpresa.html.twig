@@ -1,0 +1,29 @@
+{% extends 'barraMenu.html.twig' %}
+
+{% block title %}Modifar{% endblock %}
+
+{% block body %}
+    <br>
+
+    <div class="container">
+        {{ form_start(form) }}
+
+            <h3>Datos empresa: </h3>
+
+            {{ form_row(form.nombre) }}
+            {{ form_row(form.logo) }}
+            {{ form_row(form.tipo) }}
+            {{ form_row(form.correo) }}
+            
+            
+            
+            <input type="submit" class = "btn btn-primary" value="Guardar">
+        {{ form_end(form) }}
+    </div> 
+
+    
+
+    
+    
+    
+{% endblock %}
